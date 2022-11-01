@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#111427"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.03">
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.4"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4">
+
+            <TextView
+                android:id="@+id/txt_level"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|start"
+                android:text="level 1"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/txt_score"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|end"
+                android:text="0/0"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5">
+
+            <TextView
+                android:id="@+id/txt_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:lineSpacingExtra="1sp"
+                android:padding="5dp"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+
+                <RadioButton
+                    android:id="@+id/variant1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_btn_back"
+                    android:bufferType="normal"
+                    android:buttonTint="#12677F"
+                    android:gravity="center|start"
+                    android:padding="5dp"
+                    android:tag="0"
+                    android:text="Muhammad"
+                    android:textColor="@drawable/variant_txt_color"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/variant2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_btn_back"
+                    android:bufferType="normal"
+                    android:buttonTint="#12677F"
+                    android:gravity="center|start"
+                    android:padding="5dp"
+                    android:tag="1"
+                    android:text="David"
+                    android:textColor="@drawable/variant_txt_color"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/variant3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_btn_back"
+                    android:bufferType="normal"
+                    android:buttonTint="#12677F"
+                    android:gravity="center|start"
+                    android:padding="5dp"
+                    android:tag="2"
+                    android:text="Jack"
+                    android:textColor="@drawable/variant_txt_color"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/variant4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_btn_back"
+                    android:bufferType="normal"
+                    android:buttonTint="#12677F"
+                    android:gravity="center|start"
+                    android:padding="5dp"
+                    android:tag="3"
+                    android:text="Tom"
+                    android:textColor="@drawable/variant_txt_color"
+                    android:textSize="20sp" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/txt_result"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:layout_weight="0.1"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_submit"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/next_btn"
+                            android:onClick="submit"
+                            android:layout_marginTop="5dp"
+                            android:text="Submit"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="25sp" />
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_next"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/next_btn"
+                            android:layout_marginTop="5dp"
+                            android:text="Next"
+                            android:onClick="next"
+                            android:visibility="invisible"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="25sp" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3">
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.03">
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
