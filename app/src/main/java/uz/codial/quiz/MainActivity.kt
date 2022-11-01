@@ -3,9 +3,12 @@ package uz.codial.quiz
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,10 +21,19 @@ class MainActivity : AppCompatActivity() {
     var questionSRC = ArrayList<Question>()
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        questionSRC = Constants.getQuestions()
+
+
+
+
+        var INDEX = intent.getIntExtra("TAG", 6)
+
+
+
+        questionSRC = Constants.getQuestions(INDEX)
         questionSRC.shuffle()
         loadQuestions()
 
@@ -138,6 +150,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun restart() {
+
         level = 0
         score = 0
         questionSRC.shuffle()
@@ -145,7 +158,8 @@ class MainActivity : AppCompatActivity() {
         txt_score.text = "$score/$level"
         txt_level.text = "Level ${level + 1}"
         defBtnBack()
-
+        btn_submit.visibility = (View.VISIBLE)
+        btn_next.visibility = (View.INVISIBLE)
         enable()
 
     }
@@ -153,13 +167,28 @@ class MainActivity : AppCompatActivity() {
 
     fun next(view: View) {
         if (level == questionSRC.size - 1) {
+
+            val alertDialog = AlertDialog.Builder(this,R.style.MyDialogTheme)
+
+            alertDialog.apply {
+                //setIcon(R.drawable.ic_hello)
+                setTitle("Done")
+                setMessage("Total questions: ${questionSRC.size}\nCorrect Answers: $score" +
+                        "\nWrong Answers: ${questionSRC.size-score}")
+                setPositiveButton("restart"){_,_,->
+                    restart()
+                }
+                setNegativeButton("quit") { _, _ ->
+                    finish()
+                }
+
+            }.create().show()
             radioGroup.clearCheck()
-            restart()
 
         } else {
             level++
             txt_score.text = "$score/$level"
-            txt_level.text = "Level ${level + 1}"
+            txt_level.text = "level ${level + 1}"
             radioGroup.clearCheck()
 
             defBtnBack()
@@ -174,10 +203,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun tru() {
+        score++
+        txt_score.text = "$score/${level+1}"
         txt_result.text = "Correct"
         txt_result.setTextColor(Color.parseColor("#00FF00"))
-        score++
-
         txtTimer()
 
     }
@@ -224,6 +253,20 @@ class MainActivity : AppCompatActivity() {
         variant4.isEnabled = true
     }
 
+
+
+    private var doubleBackToExitPressedOnce = false
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
+
+        Handler(Looper.getMainLooper()).postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
+    }
 
 }
 
